@@ -10,7 +10,11 @@
                         "color": "red",
                         "left": getX(el) - getWidth(getLastCharacter(el)),
                         "top": el.offset().top,
-                        "width": getWidth(getLastCharacter(el))
+                        "width": getWidth(getLastCharacter(el)),
+                        "font-family": el.css('font-family'),
+                        "font-size": el.css('font-size'),
+                        "font-weight": el.css('font-weight'),
+                        "font-style": el.css('font-style')
                     })
                     .appendTo(document.body)
                     .fadeTo("fast", 0, function () {
