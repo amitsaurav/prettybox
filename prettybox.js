@@ -3,18 +3,19 @@
         return this.each(function () {
             $(this).on('input', function (event) {
                 var el = $(this);
-                $('<span>')
-                    .text(getLastCharacter(el))
+                $('<input>')
+                    .val(getLastCharacter(el))
                     .css({
                         "position": "absolute",
                         "color": "red",
                         "left": getX(el) - getWidth(getLastCharacter(el)),
-                        "top": el.offset().top,
-                        "width": getWidth(getLastCharacter(el)),
+                        "top": el.offset().top + 3,
+                        "width": getWidth(getLastCharacter(el)) + 3,
                         "font-family": el.css('font-family'),
                         "font-size": el.css('font-size'),
                         "font-weight": el.css('font-weight'),
-                        "font-style": el.css('font-style')
+                        "font-style": el.css('font-style'),
+                        "border": "0px"
                     })
                     .appendTo(document.body)
                     .fadeTo("fast", 0, function () {
@@ -47,6 +48,6 @@
             .appendTo(document.body)
             .width();
         $('.fakeEl').remove();
-        return width;
+        return width - 4;
     }
 }(jQuery));
